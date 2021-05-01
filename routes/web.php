@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserAuthController;
 
 
-Route::get('/',[UserAuthController::class,'login']);
+Route::get('/',[UserAuthController::class,'login'])->middleware('AlreadyLoggedIn');;
 Route::get('login',[UserAuthController::class,'login'])->middleware('AlreadyLoggedIn');
 Route::get('register',[UserAuthController::class,'register'])->middleware('AlreadyLoggedIn');
 Route::post('create',[UserAuthController::class,'create'])->name('auth.create');

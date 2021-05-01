@@ -171,3 +171,19 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+/* INSERTS ADS */
+INSERT INTO ads VALUES(null,
+"car","bmw","cla",01-05-2021,"1000","red","img/bmw_cla.jpg",CURRENT_TIMESTAMP,null);
+INSERT INTO ads VALUES(null,
+"car","audi","a3",01-05-2021,"2000","blue","img/a3.jpeg",CURRENT_TIMESTAMP,null);
+INSERT INTO ads VALUES(null,
+"motorbike","yamaha","r1",01-05-2021,"500","black","img/r1.jpg",CURRENT_TIMESTAMP,null);
+INSERT INTO ads VALUES(null,
+"motorbike","kawasaki","z900",01-05-2021,"750","green","img/z900.jpg",CURRENT_TIMESTAMP,null);
+INSERT INTO ads VALUES(null,
+"truck","volkswagen","crafter",01-05-2021,"2000","white","img/crafter.png",CURRENT_TIMESTAMP,null);
+INSERT INTO ads VALUES(null,
+"truck","mercedes","actros",01-05-2021,"4000","blue","img/actros.png",CURRENT_TIMESTAMP,null);
+
+/* INSERTS RENTS */
