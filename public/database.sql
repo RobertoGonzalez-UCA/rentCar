@@ -180,7 +180,7 @@ INSERT INTO ads VALUES(null,
 INSERT INTO ads VALUES(null,
 "motorbike","yamaha","r1","2021-05-03","500","black","img/r1.jpg",CURRENT_TIMESTAMP,null);
 INSERT INTO ads VALUES(null,
-"motorbike","kawasaki","z900","2021-05-04","750","green","img/z900.jpg",CURRENT_TIMESTAMP,null);
+"motorbike","kawasaki","z900","2021-05-04","750","green","img/z900.png",CURRENT_TIMESTAMP,null);
 INSERT INTO ads VALUES(null,
 "truck","volkswagen","crafter","2021-05-05","2000","white","img/crafter.png",CURRENT_TIMESTAMP,null);
 INSERT INTO ads VALUES(null,

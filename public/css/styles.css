@@ -402,3 +402,7 @@ button {
     padding: 2px;
     margin-left: 1px auto;
 }
+
+.pagination{
+    justify-content: center;
+}

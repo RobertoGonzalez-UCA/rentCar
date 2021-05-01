@@ -15,7 +15,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
 
     <div id="container">
         
-        <!-- CABECERA -->
+        <!-- HEADER -->
         <header id="header">
             <div id="logo">
                 <img src="img/rentcar.png" alt="Coche Logo">
@@ -26,7 +26,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
         </header>
 
         
-        <!-- MENÚ -->
+        <!-- MENU -->
         <nav id="menu">
             <ul>
                 
@@ -40,7 +40,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
         </nav>
 
         <div id="content">
-            <!-- BARRA LATERAL -->
+            <!-- ASIDE -->
             <aside id="lateral">
                 <div id="login" class="block_aside">
                     <h3>Menú</h3>
@@ -52,7 +52,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
                     </ul>
                 </div>
             </aside>
-            <!-- CONTENIDO CENTRAL -->
+            <!-- CENTER CONTENT -->
             <div id="central">
                 <h1>Más solicitados</h1>
                 @foreach($ads as $ad)
@@ -65,10 +65,10 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
                 @endforeach
             </div>
         </div>
-        {{$ads->render()}}
+        <div class="pagination">{{$ads->render()}}</div>
     </div>
 
-        <!-- PIÉ DE PÁGINA -->
+        <!-- FOOTER -->
         <footer id="footer">
             <div>
                 <p class="p-center">Desarrollado por:</p> <br> 
