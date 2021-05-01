@@ -174,16 +174,45 @@ COMMIT;
 
 /* INSERTS ADS */
 INSERT INTO ads VALUES(null,
-"car","bmw","cla",01-05-2021,"1000","red","img/bmw_cla.jpg",CURRENT_TIMESTAMP,null);
+"car","bmw","cla","2021-05-01","1000","red","img/bmw_cla.jpg",CURRENT_TIMESTAMP,null);
 INSERT INTO ads VALUES(null,
-"car","audi","a3",01-05-2021,"2000","blue","img/a3.jpeg",CURRENT_TIMESTAMP,null);
+"car","audi","a3","2021-05-02","2000","blue","img/a3.jpeg",CURRENT_TIMESTAMP,null);
 INSERT INTO ads VALUES(null,
-"motorbike","yamaha","r1",01-05-2021,"500","black","img/r1.jpg",CURRENT_TIMESTAMP,null);
+"motorbike","yamaha","r1","2021-05-03","500","black","img/r1.jpg",CURRENT_TIMESTAMP,null);
 INSERT INTO ads VALUES(null,
-"motorbike","kawasaki","z900",01-05-2021,"750","green","img/z900.jpg",CURRENT_TIMESTAMP,null);
+"motorbike","kawasaki","z900","2021-05-04","750","green","img/z900.jpg",CURRENT_TIMESTAMP,null);
 INSERT INTO ads VALUES(null,
-"truck","volkswagen","crafter",01-05-2021,"2000","white","img/crafter.png",CURRENT_TIMESTAMP,null);
+"truck","volkswagen","crafter","2021-05-05","2000","white","img/crafter.png",CURRENT_TIMESTAMP,null);
 INSERT INTO ads VALUES(null,
-"truck","mercedes","actros",01-05-2021,"4000","blue","img/actros.png",CURRENT_TIMESTAMP,null);
+"truck","mercedes","actros","2021-05-06","4000","blue","img/actros.png",CURRENT_TIMESTAMP,null);
+
+/* INSERTS USERS */
+INSERT INTO users VALUES(null,"rafa","rodriguez calvente","admin", "1997-02-23","rafa@gmail.com","123123123",CURRENT_TIMESTAMP,null);
+INSERT INTO users VALUES(null,"roberto","gonzalez alvarez","client","1997-02-23","rober@gmail.com","123123123",CURRENT_TIMESTAMP,null);
+INSERT INTO users VALUES(null,"juan carlos","camacho carribero","client","1997-02-23","juanca@gmail.com","123123123",CURRENT_TIMESTAMP,null);
 
 /* INSERTS RENTS */
+INSERT INTO rents VALUES(null,CURRENT_DATE,"2021-06-06",100,
+  (SELECT id from users WHERE email='rober@gmail.com'),
+  (SELECT adid from ads WHERE model='cla'),
+CURRENT_TIMESTAMP,null);
+INSERT INTO rents VALUES(null,CURRENT_DATE,"2021-06-06",100,
+  (SELECT id from users WHERE email='rober@gmail.com'),
+  (SELECT adid from ads WHERE model='a3'),
+CURRENT_TIMESTAMP,null);
+INSERT INTO rents VALUES(null,CURRENT_DATE,"2021-06-06",100,
+  (SELECT id from users WHERE email='rober@gmail.com'),
+  (SELECT adid from ads WHERE model='r1')
+,CURRENT_TIMESTAMP,null);
+INSERT INTO rents VALUES(null,CURRENT_DATE,"2021-06-06",100,
+  (SELECT id from users WHERE email='juanca@gmail.com'),
+  (SELECT adid from ads WHERE model='z900'),
+CURRENT_TIMESTAMP,null);
+INSERT INTO rents VALUES(null,CURRENT_DATE,"2021-06-06",100,
+  (SELECT id from users WHERE email='juanca@gmail.com'),
+  (SELECT adid from ads WHERE model='crafter'),
+CURRENT_TIMESTAMP,null);
+INSERT INTO rents VALUES(null,CURRENT_DATE,"2021-06-06",100,
+  (SELECT id from users WHERE email='juanca@gmail.com'),
+  (SELECT adid from ads WHERE model='actros'),
+CURRENT_TIMESTAMP,null);
