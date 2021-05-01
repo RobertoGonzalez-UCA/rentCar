@@ -51,8 +51,7 @@ class UserAuthController extends Controller
             'password'=>'required|min:5|max:12'
         ]);
 
-        //If form validated succesfully, the proccess login
-
+        //If form validated succesfully, then proccess login
         $user = User::where('email','=', $request->email)->first();
 
         if($user){
@@ -60,7 +59,6 @@ class UserAuthController extends Controller
                 // If password match, then redirect user to menu
                 $request->session()->put('LoggedUser',$user->id);
                 return redirect('menu');
-
             }else{
                 return back()->with('fail','Invalid');
             }
