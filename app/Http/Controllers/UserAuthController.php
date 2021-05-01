@@ -83,7 +83,7 @@ class UserAuthController extends Controller
         $data = [
             'LoggedUserInfo'=>$user
         ];
-        return view('admin.menu',$data);
+        return view('menu',$data);
     }
 
     function logout(){
