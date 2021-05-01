@@ -60,7 +60,17 @@ class UserAuthController extends Controller
                 $request->session()->put('LoggedUser',$user->id);
                 return redirect('menu');
             }else{
-                return back()->with('fail','Invalid');
+                // If we are checking user introduced manually by sql insert commands
+                $user_added_manually = User::where('password','=', $request->password)->first();
+
+                if(empty($user_added_manually)){
+                    return back()->with('fail','Invalid');
+                }
+                elseif($user_added_manually->password == $request->password){
+                    // If password match, then redirect user to menu
+                    $request->session()->put('LoggedUser',$user_added_manually->id);
+                    return redirect('menu');
+                } 
             }
         }else{
             return back()->with('fail','No Account found for this email');
