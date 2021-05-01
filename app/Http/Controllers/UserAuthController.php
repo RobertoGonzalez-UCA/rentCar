@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Iluminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 class UserAuthController extends Controller
@@ -49,7 +50,38 @@ class UserAuthController extends Controller
             'email'=>'required|email',
             'password'=>'required|min:5|max:12'
         ]);
+
+        //If form validated succesfully, the proccess login
+
+        $user = User::where('email','=', $request->email)->first();
+
+        if($user){
+            if(Hash::check($request->password, $user->password)){
+                // If password match, then redirect user to menu
+                $request->session()->put('LoggedUser',$user->id);
+                return redirect('menu');
+
+            }else{
+                return back()->with('fail','Invalid');
+            }
+        }else{
+            return back()->with('fail','No Account found for this email');
+        }
+    }
+    
+    function menu(){
+        
+        $user = User::where('id','=',session('LoggedUser'))->first();
+        $data = [
+            'LoggedUserInfo'=>$user
+        ];
+        return view('admin.menu',$data);
     }
 
-    //If form validated succesfully, the proccess login
+    function logout(){
+        if(session()->has('LoggedUser')){
+            session()->pull('LoggedUser');
+            return redirect('login');
+        }
+    }
 }

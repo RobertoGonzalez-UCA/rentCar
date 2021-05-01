@@ -17,6 +17,13 @@
                 <hr>
                 <form action="{{ route('auth.check') }}" method="post">
                 @csrf
+                <div class="results">
+                    @if(Session::get('fail'))
+                        <div class="alert-danger">
+                            {{Session::get('fail')}}
+                        </div>
+                    @endif
+                </div>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="text" class="form-control" name="email" placeholder="Enter email" value="{{ old('email') }}">
