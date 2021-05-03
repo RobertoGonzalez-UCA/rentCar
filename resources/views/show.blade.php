@@ -18,7 +18,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
         <!-- HEADER -->
         <header id="header">
             <div id="logo">
-                <img src="img/rentcar.png" alt="Coche Logo">
+                <img src="../img/rentcar.png" alt="Coche Logo">
                 <a href="/menu">
                     rentCar
                 </a>
@@ -34,7 +34,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
                 <li> <a href="/brand/audi">Audi</a> </li>
                 <li> <a href="/brand/bmw">BMW</a> </li>
                 <li> <a href="/brand/mercedes">Mercedes</a> </li>
-                <li> <a href="/brand/range_rover">Range Rover</a> </li>  
+                <li> <a href="/brand/range_rover">Range Rover</a> </li>    
             </ul>
         </nav>
         <div id="content">
@@ -55,17 +55,22 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
             <!-- CENTER CONTENT -->
             <div id="central">
                 <h1>Más solicitados</h1>
-                @foreach($ads as $ad)
                 <div class="product">
-                    <img src="{{$ad->image}}" alt="">
+                    <img src="../{{$ad->image}}" alt="">
                     <h2>{{$ad->brand}} {{$ad->model}}</h2>
                     <p>{{$ad->price}}€/día</p>
-                    <a href="{{route('show', ['ad'=>$ad->adid])}}" class="button">Alquilar</a>
+                    <p>Matrícula: {{$ad->license_plate}}</p>
+                    <p>Color: {{$ad->color}}</p>
+                    <form>
+                        <label for="start">Desde:</label>
+                        <input type="date" id="start" name="start-rent" value="2021-07-22" min="2021-01-01" max="2035-12-31">
+                        <label for="start">Hasta:</label>
+                        <input type="date" id="start" name="end-rent" value="2021-07-22" min="2021-01-01" max="2035-12-31">
+                        <button type="submit" class="button">Confirmar alquiler</button>
+                    </form>
                 </div>
-                @endforeach
             </div>
         </div>
-        <div class="pagination">{{$ads->render()}}</div>
     </div>
 
         <!-- FOOTER -->

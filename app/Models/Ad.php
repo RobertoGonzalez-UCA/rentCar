@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ad extends Model
 {
+    protected $primaryKey = 'adid';
     use HasFactory;
 }

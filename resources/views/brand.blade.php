@@ -18,7 +18,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
         <!-- HEADER -->
         <header id="header">
             <div id="logo">
-                <img src="img/rentcar.png" alt="Coche Logo">
+                <img src="../img/rentcar.png" alt="Coche Logo">
                 <a href="/menu">
                     rentCar
                 </a>
@@ -57,7 +57,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
                 <h1>Más solicitados</h1>
                 @foreach($ads as $ad)
                 <div class="product">
-                    <img src="{{$ad->image}}" alt="">
+                    <img src="../{{$ad->image}}" alt="">
                     <h2>{{$ad->brand}} {{$ad->model}}</h2>
                     <p>{{$ad->price}}€/día</p>
                     <a href="{{route('show', ['ad'=>$ad->adid])}}" class="button">Alquilar</a>
