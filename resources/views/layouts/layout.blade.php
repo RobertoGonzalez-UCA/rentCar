@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     <link rel="stylesheet"
 href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -46,6 +47,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
                         <li><a href="/type/car">Coches</a></li>
                         <li><a href="/type/motorbike">Motos</a></li>
                         <li><a href="/type/truck">Camiones</a></li>
+                        <li><a href="/list">Mis alquileres</a></li>
                         <li><a href="#">Fechas disponibles</a></li>
                         <li><a href="#">Otras funcionalidades</a></li>
                         <li><a href="logout">Logout</a></li>
