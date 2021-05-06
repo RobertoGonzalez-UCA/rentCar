@@ -117,23 +117,20 @@ class AdController extends Controller
             return view('admin.notpermited');
         }
 
+        // Delete from /public/img
+        $query2 = DB::table('ads')->select('image')->where('adid', '=', $id)->get()->toArray();
+
+        $existsImage = false;
+        if(!empty($query2[0]->image)){
+            $image_path = $query2[0]->image;
+            if(File::exists($image_path)) {
+                $existsImage = true;
+                File::delete($image_path);
+            }        
+        }
 
         // Delete from DB
         $query = DB::table('ads')->where('adid', '=', $id)->delete();
-
-        $query2 = DB::table('ads')->select('image')->where('adid', '=', $id)->get()->toArray();
-
-
-        if(empty($query2[0]->image)){
-            $existsImage = true;
-        }else{
-            // Delete from /public/img
-            $image_path = $query2[0]->image;
-            if(File::exists($image_path)) {
-                $existsImage = false;
-                File::delete($image_path);
-            }
-        }
 
         if($query && $existsImage){
             return back()->with('success','You have been succesfully deleted an ad');
