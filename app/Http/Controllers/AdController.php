@@ -84,7 +84,7 @@ class AdController extends Controller
             'license_plate' => $request->license_plate,
             'price' => $request->price,
             'color' => $request->color,
-            'image' => $request->image->getClientOriginalName()
+            'image' => "img/" . $request->image->getClientOriginalName()
         ]);
 
         if($query){
@@ -141,6 +141,7 @@ class AdController extends Controller
     
     public function update_ad(){
         
+        /* In progress */
         $current_user = User::where('id','=',session('LoggedUser'))->first();
         $user_rol = DB::table('users')->select('rol')->where('id', '=', $current_user->id)->get()->toArray();
 
