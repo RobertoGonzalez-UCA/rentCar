@@ -77,14 +77,15 @@ class UserAuthController extends Controller
         }
     }
     
-    function menu(){
-        
+    /* function menu(){
+
         $user = User::where('id','=',session('LoggedUser'))->first();
+
         $data = [
             'LoggedUserInfo'=>$user
         ];
         return view('menu',$data);
-    }
+    } */
 
     function logout(){
         if(session()->has('LoggedUser')){

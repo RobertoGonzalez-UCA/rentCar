@@ -30,12 +30,13 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
         <!-- MENU -->
         <nav id="menu">
             <ul>
-                
                 <li> <a href="/menu">Inicio</a> </li>
                 <li> <a href="/brand/audi">Audi</a> </li>
                 <li> <a href="/brand/bmw">BMW</a> </li>
                 <li> <a href="/brand/mercedes">Mercedes</a> </li>
-                <li> <a href="/brand/range_rover">Range Rover</a> </li>  
+                <li> <a href="/brand/yamaha">Yamaha</a> </li>  
+                <li> <a href="/brand/kawasaki">Kawasaki</a> </li>  
+                <li> <a href="/brand/volkswagen">Volkswagen </a> </li>  
             </ul>
         </nav>
         <div id="content">
@@ -44,18 +45,43 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
                 <div id="login" class="block_aside">
                     <h3>Menú</h3>
                     <ul>
-                        <li><a href="/type/car">Coches</a></li>
-                        <li><a href="/type/motorbike">Motos</a></li>
-                        <li><a href="/type/truck">Camiones</a></li>
-                        <li><a href="/list">Mis alquileres</a></li>
-                        <li><a href="#">Fechas disponibles</a></li>
-                        <li><a href="#">Otras funcionalidades</a></li>
+                    
+                        <li class="main-menu"><a href="/type/car">Coches</a></li>
+                        <li class="main-menu"><a href="/type/motorbike">Motos</a></li>
+                        <li class="main-menu"><a href="/type/truck">Camiones</a></li>
+                        <li class="main-menu"> <a href="/list">Mis alquileres</a></li>
+                        <li class="main-menu"><a href="#">Fechas disponibles</a></li>
+                        
+                        @if(isset($isAdminMenu))
+                            @if($isAdminMenu)
+                                <h2></h2>
+                                <li><a href="/create_form/ad">Crear anuncio</a></li>
+                                <li><a href="/delete_form/ad">Borrar anuncio</a></li>
+                                <li><a href="/update/ad">Modificar anuncios</a></li>
+                                <script>
+                                    let $li = document.getElementsByClassName("main-menu");
+                                    let i;
+                                    for (i = 0; i < $li.length; i++) {
+                                        $li[i].style.display = 'none';
+                                    }
+                                    
+                                </script>
+                            @endif       
+                        @endif
+
+                        @if(isset($isAdmin))
+                            @if($isAdmin)
+                                <li><a href="/admin">Gestionar Alquileres</a></li>
+                            @endif
+                        @endif
+                        
                         <li><a href="logout">Logout</a></li>
                     </ul>
                 </div>
             </aside>
             <!-- CENTER CONTENT -->
             @yield('content')
+        </div>
 
         <!-- FOOTER -->
         <footer id="footer">
