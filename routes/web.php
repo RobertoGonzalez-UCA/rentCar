@@ -19,8 +19,6 @@ Route::middleware(['AlreadyLoggedIn'])->group(function(){
 
 Route::middleware(['isLogged'])->group(function(){
 
-    // UserAuth routes
-    Route::post('create',[UserAuthController::class,'create'])->name('auth.create');
     Route::get('logout',[UserAuthController::class,'logout']);
 
     // Ad routes
@@ -42,5 +40,8 @@ Route::middleware(['isLogged'])->group(function(){
     Route::get('list',[RentController::class, 'list'])->name('list');
     Route::get('showrent/{rent}',[RentController::class, 'showrent'])->name('showrent');
 });
+
+// UserAuth routes
+Route::post('create',[UserAuthController::class,'create'])->name('auth.create');
 
 
