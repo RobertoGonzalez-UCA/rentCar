@@ -28,7 +28,11 @@ class AdController extends Controller
     }
 
     public function show(Ad $ad){
-        return view('ad.show')->with(['ad' => $ad]);
+        $user = User::where('id', '=', session('LoggedUser'))->first();
+        $data = [
+            'LoggedUserInfo'=>$user
+        ];
+        return view('ad.show',$data)->with(['ad' => $ad]);
     }
 
     public function brand($brand){

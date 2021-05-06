@@ -27,7 +27,7 @@
             <input type="date" name="date_expire" value="2021-07-22" min="2021-01-01" max="2035-12-31">
             <input type="hidden" name="bail" value="{{$ad->price}}">
             <input type="hidden" name="adid" value="{{$ad->adid}}">
-            <input type="hidden" name="uid" value="4">
+            <input type="hidden" name="id" value="{{$LoggedUserInfo->id}}">
             <button type="submit" class="button">Confirmar alquiler</button>
         </form>
     </div>
