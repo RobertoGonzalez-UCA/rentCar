@@ -17,8 +17,13 @@ class RentController extends Controller
     public function list()
     {
         $current_user = User::where('id','=',session('LoggedUser'))->first();
-        $rents = DB::table('rents')->where('uid', $current_user->id)->paginate(4);
-        return view('rent.list')->with(['rents' => $rents]);
+
+        $data = DB::table('rents')
+        ->join('ads', 'rents.adid', '=', 'ads.adid')
+        ->where('uid', $current_user->id)
+        ->paginate(4);
+
+        return view('rent.list')->with(['rows' => $data]);
     }
 
     public function store(NewRentRequest $request)

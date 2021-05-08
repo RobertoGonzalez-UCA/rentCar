@@ -21,7 +21,7 @@
             <img src="../{{$ad->image}}" alt="Vehículo">
             <h2>{{$ad->brand}} {{$ad->model}}</h2>
             <p>{{$ad->price}} €/día</p>
-            <a href="{{ view('ad.update_form')->with(['ad'=>$ad->adid]) }}" class="button">Actualizar</a>
+            <a href="{{route('update_form.ad', ['ad'=>$ad->adid])}}" class="button">Actualizar</a>
         </div>
     @endforeach
 </div>

@@ -15,7 +15,7 @@
             <div class="col-md-4 col-md-offset-4">
                 <h4>Actualizar anuncio</h4>
                 <hr>
-                <form action="{{ route('update.ad', ['ad' => $ad->adid]) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('update_put.ad', ['ad' => $ad->adid]) }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                     <div class="results">

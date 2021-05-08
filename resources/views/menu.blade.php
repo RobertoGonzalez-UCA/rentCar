@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     <link rel="stylesheet"
 href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -19,7 +18,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
         <!-- HEADER -->
         <header id="header">
             <div id="logo">
-                <img src="../img/rentcar.png" alt="Coche Logo">
+                <img src="img/rentcar.png" alt="Coche Logo">
                 <a href="/menu">
                     rentCar
                 </a>
@@ -30,13 +29,12 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
         <!-- MENU -->
         <nav id="menu">
             <ul>
+                
                 <li> <a href="/menu">Inicio</a> </li>
                 <li> <a href="/brand/audi">Audi</a> </li>
                 <li> <a href="/brand/bmw">BMW</a> </li>
                 <li> <a href="/brand/mercedes">Mercedes</a> </li>
-                <li> <a href="/brand/yamaha">Yamaha</a> </li>  
-                <li> <a href="/brand/kawasaki">Kawasaki</a> </li>  
-                <li> <a href="/brand/volkswagen">Volkswagen </a> </li>  
+                <li> <a href="/brand/range_rover">Range Rover</a> </li>  
             </ul>
         </nav>
         <div id="content">
@@ -45,43 +43,30 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
                 <div id="login" class="block_aside">
                     <h3>Menú</h3>
                     <ul>
-                    
-                        <li class="main-menu"><a href="/type/car">Coches</a></li>
-                        <li class="main-menu"><a href="/type/motorbike">Motos</a></li>
-                        <li class="main-menu"><a href="/type/truck">Camiones</a></li>
-                        <li class="main-menu"> <a href="/list">Mis alquileres</a></li>
-                        <li class="main-menu"><a href="#">Fechas disponibles</a></li>
-                        
-                        @if(isset($isAdminMenu))
-                            @if($isAdminMenu)
-                                <h2></h2>
-                                <li><a href="/create_form/ad">Crear anuncio</a></li>
-                                <li><a href="/update/ad">Modificar anuncios</a></li>
-                                <li><a href="/delete_form/ad">Borrar anuncio</a></li>
-                                <script>
-                                    let $li = document.getElementsByClassName("main-menu");
-                                    let i;
-                                    for (i = 0; i < $li.length; i++) {
-                                        $li[i].style.display = 'none';
-                                    }
-                                    
-                                </script>
-                            @endif       
-                        @endif
-
-                        @if(isset($isAdmin))
-                            @if($isAdmin)
-                                <li><a href="/admin">Gestionar Alquileres</a></li>
-                            @endif
-                        @endif
-                        
+                        <li><a href="/type/car">Coches</a></li>
+                        <li><a href="/type/motorbike">Motos</a></li>
+                        <li><a href="/type/truck">Camiones</a></li>
+                        <li><a href="#">Fechas disponibles</a></li>
+                        <li><a href="#">Otras funcionalidades</a></li>
                         <li><a href="logout">Logout</a></li>
                     </ul>
                 </div>
             </aside>
             <!-- CENTER CONTENT -->
-            @yield('content')
+            <div id="central">
+                <h1>Más solicitados</h1>
+                @foreach($ads as $ad)
+                <div class="product">
+                    <img src="{{$ad->image}}" alt="">
+                    <h2>{{$ad->brand}} {{$ad->model}}</h2>
+                    <p>{{$ad->price}}€/día</p>
+                    <a href="{{route('show', ['ad'=>$ad->adid])}}" class="button">Alquilar</a>
+                </div>
+                @endforeach
+            </div>
         </div>
+        <div class="pagination">{{$ads->render()}}</div>
+    </div>
 
         <!-- FOOTER -->
         <footer id="footer">

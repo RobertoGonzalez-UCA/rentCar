@@ -142,7 +142,7 @@ class AdController extends Controller
         }
     }
     
-    public function update_form_ad(){
+    public function update_ad_page(){
         $current_user = User::where('id','=',session('LoggedUser'))->first();
         $user_rol = DB::table('users')->select('rol')->where('id', '=', $current_user->id)->get()->toArray();
 
@@ -154,7 +154,17 @@ class AdController extends Controller
         return view('ad.update')->with(['ads' => $ads]);
     }
 
-    public function update_ad(Int $adid){
+    public function update_form_ad(Ad $ad){
+        $current_user = User::where('id','=',session('LoggedUser'))->first();
+        $user_rol = DB::table('users')->select('rol')->where('id', '=', $current_user->id)->get()->toArray();
+
+        if($user_rol[0]->rol != 'admin'){
+            return view('admin.notpermited');
+        }
+        return view('ad.update_form')->with(['ad' => $ad]);
+    }
+
+    public function update_ad(Int $adid, Request $request){
         $current_user = User::where('id','=',session('LoggedUser'))->first();
         $user_rol = DB::table('users')->select('rol')->where('id', '=', $current_user->id)->get()->toArray();
 
