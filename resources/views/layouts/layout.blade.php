@@ -31,12 +31,12 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
         <nav id="menu">
             <ul>
                 <li> <a href="/menu">Inicio</a> </li>
-                <li> <a href="/brand/audi">Audi</a> </li>
-                <li> <a href="/brand/bmw">BMW</a> </li>
-                <li> <a href="/brand/mercedes">Mercedes</a> </li>
-                <li> <a href="/brand/yamaha">Yamaha</a> </li>  
-                <li> <a href="/brand/kawasaki">Kawasaki</a> </li>  
-                <li> <a href="/brand/volkswagen">Volkswagen </a> </li>  
+                <li> <a href="/brand/audi"><img src="\img\logos\audi-logo.svg" width="35" height="35"></a></li>
+                <li> <a href="/brand/bmw"><img src="\img\logos\bmw-logo.svg" width="35" height="35"></a></a></li>
+                <li> <a href="/brand/mercedes"><img src="\img\logos\mercedes-logo.svg" width="35" height="35"></a></a></li>
+                <li> <a href="/brand/volkswagen"><img src="\img\logos\volkswaguen-logo.svg" width="35" height="35"></a></li>  
+                <li> <a href="/brand/kawasaki">Kawasaki</a></a></li>  
+                <li> <a href="/brand/yamaha">Yamaha</a></a></li>  
             </ul>
         </nav>
         <div id="content">
@@ -50,11 +50,9 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
                         <li class="main-menu"><a href="/type/motorbike">Motos</a></li>
                         <li class="main-menu"><a href="/type/truck">Camiones</a></li>
                         <li class="main-menu"> <a href="/list">Mis alquileres</a></li>
-                        <li class="main-menu"><a href="#">Fechas disponibles</a></li>
                         
                         @if(isset($isAdminMenu))
                             @if($isAdminMenu)
-                                <h2></h2>
                                 <li><a href="/create_form/ad">Crear anuncio</a></li>
                                 <li><a href="/update/ad">Modificar anuncios</a></li>
                                 <li><a href="/delete_form/ad">Borrar anuncio</a></li>

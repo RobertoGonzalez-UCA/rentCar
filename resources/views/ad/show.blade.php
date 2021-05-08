@@ -5,11 +5,11 @@
     <h1>Realizar alquiler</h1>
     <div class="product">
         <img src="../{{$ad->image}}" alt="">
-        <p>Marca: {{$ad->brand}}</p>
-        <p>Modelo: {{$ad->model}}</p>
+        <p>Marca: {{ucfirst($ad->brand)}}</p>
+        <p>Modelo: {{ucfirst($ad->model)}}</p>
         <p>Precio: {{$ad->price}} €/día</p>
         <p>Matrícula: {{$ad->license_plate}}</p>
-        <p>Color: {{$ad->color}}</p>
+        <p>Color: {{ucfirst($ad->color)}}</p>
         <form action="{{route('store')}}" method="POST">
             @if($errors->any())
             <div class="alert alert-danger">

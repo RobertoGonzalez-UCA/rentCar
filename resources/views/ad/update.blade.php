@@ -19,12 +19,13 @@
     @foreach($ads as $ad)
         <div class="product">
             <img src="../{{$ad->image}}" alt="Vehículo">
-            <h2>{{$ad->brand}} {{$ad->model}}</h2>
+            <h2>{{ucfirst($ad->brand)}} {{ucfirst($ad->model)}}</h2>
             <p>{{$ad->price}} €/día</p>
             <a href="{{route('update_form.ad', ['ad'=>$ad->adid])}}" class="button">Actualizar</a>
         </div>
     @endforeach
 </div>
+<div class="pagination">{{$ads->render()}}</div>
 
 <script>
     document.getElementById("login").style.display = "none";

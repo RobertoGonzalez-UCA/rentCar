@@ -6,9 +6,8 @@
     @foreach($rows as $row)
         <div class="product">
             <img src="{{$row->image}}" alt="">
-            <h2>{{$row->adid}} {{$row->uid}}</h2>
-            <p>{{$row->bail}}€/día</p>
-            <a href="{{route('showrent', ['rent'=>$row->rentid])}}" class="button">Ver más información</a>
+            <h2>{{ucfirst($row->brand)}} {{ucfirst($row->model)}}</h2>
+            <a href="{{route('showrent', ['rent'=>$row->rentid])}}" class="button">Más información</a>
         </div>
     @endforeach
     </div>

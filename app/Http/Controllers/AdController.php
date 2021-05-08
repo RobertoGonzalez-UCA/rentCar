@@ -91,9 +91,9 @@ class AdController extends Controller
         ]);
 
         if($query){
-            return back()->with('success','You have been succesfully registered a new ad');
+            return back()->with('success','El anuncio ha sido creado correctamente.');
         }else{
-            return back()->with('fail','Something went wrong'); 
+            return back()->with('fail','Algo fue mal.'); 
         }
     }
     
@@ -107,11 +107,11 @@ class AdController extends Controller
         }
 
 
-        $ads = DB::table('ads')->get();
+        $ads = DB::table('ads')->paginate(4);
         return view('ad.delete')->with(['ads' => $ads]);
     }
 
-    public function delete_ad(int $id){
+    public function delete_ad(Int $id){
 
         $current_user = User::where('id','=',session('LoggedUser'))->first();
         $user_rol = DB::table('users')->select('rol')->where('id', '=', $current_user->id)->get()->toArray();
@@ -136,9 +136,9 @@ class AdController extends Controller
         $query = DB::table('ads')->where('adid', '=', $id)->delete();
 
         if($query && $existsImage){
-            return back()->with('success','You have been succesfully deleted an ad');
+            return back()->with('success','El anuncio ha sido eliminado correctamente.');
         }else{
-            return back()->with('fail','Something went wrong'); 
+            return back()->with('fail','Algo fue mal.'); 
         }
     }
     
@@ -150,7 +150,7 @@ class AdController extends Controller
             return view('admin.notpermited');
         }
 
-        $ads = DB::table('ads')->get();
+        $ads = DB::table('ads')->paginate(4);
         return view('ad.update')->with(['ads' => $ads]);
     }
 
@@ -174,32 +174,41 @@ class AdController extends Controller
 
         // Validate
         $request->validate([
-            'type'=>'string|required|max:255',
-            'brand'=>'string|required|max:255',
-            'model'=>'string|required|max:255',
-            'license_plate'=>'required',
-            'price'=>'int|required|max:255',
-            'color'=>'string|required|max:255',
-            'image'=>'required|max:255|mimes:jpg,bmp,png,jpeg',
+            'model'=>'nullable|string|max:255',
+            'price'=>'nullable|int|min:0',
+            'color'=>'nullable|string|max:255',
+            'image'=>'nullable|image|mimes:jpg,bmp,png,jpeg|max:10000',
         ]);
 
-        $image_path = $request->image->getClientOriginalName();
-        $request->image->move(public_path('img'), $image_path);
-        
-        $query = DB::table('ads')->where('adid', $adid)->update([
-            'type' => $request->type,
-            'brand' => $request->brand,
-            'model' => $request->model,
-            'license_plate' => $request->license_plate,
-            'price' => $request->price,
-            'color' => $request->color,
-            'image' => "img/" . $request->image->getClientOriginalName()
-        ]);
+        if ($request->hasFile('image'))
+        {
+            $image_path = $request->image->getClientOriginalName();
+            $request->image->move(public_path('img'), $image_path);
+
+            $query = DB::table('ads')->where('adid', $adid)->update([
+                'type' => $request->type,
+                'brand' => $request->brand,
+                'model' => $request->model,
+                'license_plate' => $request->license_plate,
+                'price' => $request->price,
+                'color' => $request->color,
+                'image' => "img/" . $request->image->getClientOriginalName()
+            ]);
+        } else {
+            $query = DB::table('ads')->where('adid', $adid)->update([
+                'type' => $request->type,
+                'brand' => $request->brand,
+                'model' => $request->model,
+                'license_plate' => $request->license_plate,
+                'price' => $request->price,
+                'color' => $request->color
+            ]);
+        }
 
         if($query){
-            return back()->with('success','Se ha actualizado el anuncio correctamente!');
+            return back()->with('success','El anuncio se ha actualizado correctamente,');
         }else{
-            return back()->with('fail','Algo fue mal!'); 
+            return back()->with('fail','Algo fue mal.'); 
         }
     }
 }

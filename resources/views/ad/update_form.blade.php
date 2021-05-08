@@ -33,7 +33,22 @@
                     </div>
                     <div class="form-group">
                         <label for="type">Tipo</label>
-                        <select class="form-control" name="type" aria-label="Default select example" value="{{old('type')}}">
+                        <select class="form-control" name="type" value="{{old('type')}}">
+                            <option value="{{ $ad->type }}" hidden>
+                                @switch($ad->type)
+                                    @case('car')
+                                        Coche
+                                        @break
+                                    @case('motorbike')
+                                        Motocicleta
+                                        @break
+                                    @case('truck')
+                                        Camión
+                                        @break
+                                    @default
+                                        Desconocido
+                                @endswitch
+                            </option>
                             <option value="car">Coche</option>
                             <option value="motorbike">Motocicleta</option>
                             <option value="truck">Camión</option>
@@ -41,10 +56,34 @@
                         <span class="text-danger">@error('type'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
-                    <label for="type">Marca</label>
-                        <select class="form-control" name="brand" aria-label="Default select example" value="{{old('brand')}}">
+                        <label for="type">Marca</label>
+                        <select class="form-control" name="brand" value="{{old('brand')}}">
+                        <option value="{{ $ad->brand }}" hidden>
+                        @switch($ad->brand)
+                                    @case('audi')
+                                        Audi
+                                        @break
+                                    @case('bmw')
+                                        BMW
+                                        @break
+                                    @case('mercedes')
+                                        Mercedes
+                                        @break
+                                    @case('yamaha')
+                                        Yamaha
+                                        @break
+                                    @case('kawasaki')
+                                        Kawasaki
+                                        @break
+                                    @case('volkswagen')
+                                        Volkswagen
+                                        @break
+                                    @default
+                                        Desconocido
+                                @endswitch
+                        </option>
                             <option value="audi">Audi</option>
-                            <option value="bMW">BMW</option>
+                            <option value="bmw">BMW</option>
                             <option value="mercedes">Mercedes</option>
                             <option value="yamaha">Yamaha</option>
                             <option value="kawasaki">Kawasaki</option>
@@ -56,44 +95,43 @@
                     </div>
                     <div class="form-group">
                         <label for="model">Modelo</label>
-                        <input type="text" class="form-control" name="model" placeholder="Huracán" value="{{old('model')}}">
+                        <input type="text" class="form-control" name="model" value="{{ $ad->model }}">
                         <span class="text-danger">
                             @error('model'){{$message}} @enderror
                         </span>                    
                     </div>
                     <div class="form-group">
                         <label for="license_plate">Matrícula</label>
-                        <input type="date" class="form-control" name="license_plate" value="{{old('license_plate')}}"> 
+                        <input type="date" class="form-control" name="license_plate" value="{{ $ad->license_plate }}"> 
                         <span class="text-danger">
                             @error('license_plate'){{$message}} @enderror
                         </span>                    
                     </div>
                     <div class="form-group">
                         <label for="price">Precio (€/día)</label>
-                        <input type="number" class="form-control" name="price" placeholder="139" value="{{old('price')}}">
+                        <input type="number" class="form-control" name="price" min="0" value="{{ $ad->price }}">
                         <span class="text-danger">
                             @error('price'){{$message}} @enderror
                         </span>                    
                     </div>
                     <div class="form-group">
                         <label for="color">Color</label>
-                        <input type="text" class="form-control" name="color" placeholder="Rojo">
+                        <input type="text" class="form-control" name="color" value="{{ $ad->color }}">
                         <span class="text-danger">
                             @error('color'){{$message}} @enderror
                         </span>                    
                     </div>
                     <div class="form-group">
                         <label for="image">Imagen</label>
-                        <input type="file" class="form-control-file" id="image" name="image">
+                        <input type="file" class="form-control-file" id="image" name="image" value="$ad->image">
                         <span class="text-danger">
                             @error('password'){{$message}} @enderror
                         </span>                    
                     </div>
                     
                     <div class="form-group">
-                        <button type="submit" class="btn btn-block btn-primary" >Actualizar anuncio</button>
-                    </div>
-                                    
+                        <button type="submit" class="btn btn-block btn-primary">Actualizar</button>
+                    </div>              
                 </form>
             </div>
         </div>
