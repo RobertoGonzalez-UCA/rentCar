@@ -56,8 +56,8 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
                             @if($isAdminMenu)
                                 <h2></h2>
                                 <li><a href="/create_form/ad">Crear anuncio</a></li>
+                                <li><a href="/update_form/ad">Modificar anuncios</a></li>
                                 <li><a href="/delete_form/ad">Borrar anuncio</a></li>
-                                <li><a href="/update/ad">Modificar anuncios</a></li>
                                 <script>
                                     let $li = document.getElementsByClassName("main-menu");
                                     let i;

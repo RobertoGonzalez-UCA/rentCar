@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="central">
-    <h1>Anuncios</h1>
+    <h1>Más populares</h1>
     @foreach($ads as $ad)
         <div class="product">
             <img src="{{$ad->image}}" alt="">

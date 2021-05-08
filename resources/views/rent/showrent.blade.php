@@ -4,7 +4,13 @@
 <div id="central">
     <h1>Ver alquiler</h1>
     <div class="product">
-        <p>Precio: {{$rent->bail}}</p>
+        <img src="../{{$ad->image}}" alt="">
+        <p>Marca: {{$ad->brand}}</p>
+        <p>Modelo: {{$ad->model}}</p>
+        <p>Precio: {{$ad->price}} €/día</p>
+        <p>Matrícula: {{$ad->license_plate}}</p>
+        <p>Color: {{$ad->color}}</p>
+        <p>Fianza: {{$rent->bail}} €</p>
         <p>Desde: {{$rent->date}}</p>
         <p>Hasta: {{$rent->date_expire}}</p>
     </div>

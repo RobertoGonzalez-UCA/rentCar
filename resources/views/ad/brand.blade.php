@@ -7,7 +7,7 @@
             <div class="product">
                 <img src="../{{$ad->image}}" alt="">
                 <h2>{{$ad->brand}} {{$ad->model}}</h2>
-                <p>{{$ad->price}}€/día</p>
+                <p>{{$ad->price}} €/día</p>
                 <a href="{{route('show', ['ad'=>$ad->adid])}}" class="button">Alquilar</a>
             </div>
         @endforeach

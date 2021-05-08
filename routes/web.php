@@ -30,7 +30,8 @@ Route::middleware(['isLogged'])->group(function(){
     Route::post('create/ad', [AdController::class, 'create_ad'])->name('create.ad');
     Route::get('delete_form/ad', [AdController::class, 'delete_form_ad'])->name('delete.ad');
     Route::get('delete/ad/{ad}', [AdController::class, 'delete_ad'])->name('delete.ad');
-    Route::get('update/ad', [AdController::class, 'update_ad'])->name('update.ad');
+    Route::get('update_form/ad', [AdController::class, 'update_form_ad'])->name('update_form.ad');
+    Route::put('update/ad/{ad}', [AdController::class, 'update_ad'])->name('update.ad');
 
     // Admin routes
     Route::get('admin', [AdminController::class, 'menu'])->name('admin.menu');

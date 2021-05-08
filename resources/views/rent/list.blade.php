@@ -2,7 +2,7 @@
 
 @section('content')
 <div id="central">
-    <h1>Más solicitados</h1>
+    <h1>Mis alquileres</h1>
     @foreach($rents as $rent)
         <div class="product">
             <h2>{{$rent->adid}} {{$rent->uid}}</h2>

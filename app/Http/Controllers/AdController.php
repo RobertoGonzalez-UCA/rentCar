@@ -66,7 +66,6 @@ class AdController extends Controller
             return view('admin.notpermited');
         }
 
-
         // Validate request
         $request->validate([
             'type'=>'string|required|max:255',
@@ -143,9 +142,7 @@ class AdController extends Controller
         }
     }
     
-    public function update_ad(){
-        
-        /* In progress */
+    public function update_form_ad(){
         $current_user = User::where('id','=',session('LoggedUser'))->first();
         $user_rol = DB::table('users')->select('rol')->where('id', '=', $current_user->id)->get()->toArray();
 
@@ -153,8 +150,46 @@ class AdController extends Controller
             return view('admin.notpermited');
         }
 
+        $ads = DB::table('ads')->get();
+        return view('ad.update')->with(['ads' => $ads]);
+    }
 
-        return "asd";
+    public function update_ad(Int $adid){
+        $current_user = User::where('id','=',session('LoggedUser'))->first();
+        $user_rol = DB::table('users')->select('rol')->where('id', '=', $current_user->id)->get()->toArray();
 
+        if($user_rol[0]->rol != 'admin'){
+            return view('admin.notpermited');
+        }
+
+        // Validate
+        $request->validate([
+            'type'=>'string|required|max:255',
+            'brand'=>'string|required|max:255',
+            'model'=>'string|required|max:255',
+            'license_plate'=>'required',
+            'price'=>'int|required|max:255',
+            'color'=>'string|required|max:255',
+            'image'=>'required|max:255|mimes:jpg,bmp,png,jpeg',
+        ]);
+
+        $image_path = $request->image->getClientOriginalName();
+        $request->image->move(public_path('img'), $image_path);
+        
+        $query = DB::table('ads')->where('adid', $adid)->update([
+            'type' => $request->type,
+            'brand' => $request->brand,
+            'model' => $request->model,
+            'license_plate' => $request->license_plate,
+            'price' => $request->price,
+            'color' => $request->color,
+            'image' => "img/" . $request->image->getClientOriginalName()
+        ]);
+
+        if($query){
+            return back()->with('success','Se ha actualizado el anuncio correctamente!');
+        }else{
+            return back()->with('fail','Algo fue mal!'); 
+        }
     }
 }
