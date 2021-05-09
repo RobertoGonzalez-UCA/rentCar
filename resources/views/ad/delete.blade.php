@@ -24,10 +24,15 @@
             <a href="{{route('delete.ad', ['ad'=>$ad->adid])}}" class="button">Eliminar</a>
         </div>
     @endforeach
-</div>
-<div class="pagination">{{$ads->render()}}</div>
+
+    </div>
+    </div>
+
+    <div class="pagination">{{$ads->render()}}</div>
 
 <script>
     document.getElementById("login").style.display = "none";
 </script>
+
+
 @endsection

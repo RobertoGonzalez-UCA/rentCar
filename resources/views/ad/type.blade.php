@@ -14,5 +14,8 @@
     </div>
     </div>
     <div class="pagination">{{$ads->render()}}</div>
+    <div style="display: flex; justify-content: flex-end; ">
+        <a  style="margin-right: 20px; margin-bottom: 20px; margin-top: 5px; color: black" href="/menu" class="btn btn-success btn-lg " role="button" aria-pressed="true">Volver al inicio</a>
+    </div>
 </div>
 @endsection

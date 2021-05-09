@@ -25,6 +25,7 @@
         </div>
     @endforeach
 </div>
+</div>
 <div class="pagination">{{$ads->render()}}</div>
 
 <script>

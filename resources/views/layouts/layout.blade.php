@@ -7,7 +7,10 @@
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
     <link rel="stylesheet"
 href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>rentCar</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@500&display=swap" rel="stylesheet">
+
+<title>rentCar</title>
 </head>
 
 <style>
@@ -30,13 +33,13 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
         <!-- MENU -->
         <nav id="menu">
             <ul>
-                <li> <a href="/menu">Inicio</a> </li>
-                <li> <a href="/brand/audi"><img src="\img\logos\audi-logo.svg" width="35" height="35"></a></li>
-                <li> <a href="/brand/bmw"><img src="\img\logos\bmw-logo.svg" width="35" height="35"></a></a></li>
-                <li> <a href="/brand/mercedes"><img src="\img\logos\mercedes-logo.svg" width="35" height="35"></a></a></li>
-                <li> <a href="/brand/volkswagen"><img src="\img\logos\volkswaguen-logo.svg" width="35" height="35"></a></li>  
-                <li> <a href="/brand/kawasaki">Kawasaki</a></a></li>  
-                <li> <a href="/brand/yamaha">Yamaha</a></a></li>  
+                <li> <a href="/menu">INICIO</a> </li>
+                <li> <a href="/brand/audi"><img src="\img\logos\audi-logo.png" width="35" height="35"></a></li>
+                <li> <a href="/brand/bmw"><img src="\img\logos\bmw-logo.png" width="35" height="35"></a></li>
+                <li> <a href="/brand/mercedes"><img src="\img\logos\mercedes-logo2.png" width="35" height="35"></a></li>
+                <li> <a href="/brand/volkswagen"><img src="\img\logos\volkswaguen-logo.png" width="35" height="35"></li>  
+                <li> <a href="/brand/kawasaki"><img src="\img\logos\kawasaki-logo.png" width="35"  height="35" alt=""></a></li>  
+                <li> <a href="/brand/yamaha"><img src="\img\logos\yamaha-logo.png" width="35"  height="35" alt=""></a></li>   
             </ul>
         </nav>
         <div id="content">
@@ -73,7 +76,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
                             @endif
                         @endif
                         
-                        <li><a href="logout">Logout</a></li>
+                        <li><a href="/logout">Logout</a></li>
                     </ul>
                 </div>
             </aside>

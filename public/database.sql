@@ -184,7 +184,7 @@ INSERT INTO ads VALUES(null,
 INSERT INTO ads VALUES(null,
 "truck","volkswagen","crafter","2021-05-05","2000","white","img/crafter.png",CURRENT_TIMESTAMP,null);
 INSERT INTO ads VALUES(null,
-"truck","mercedes","actros","2021-05-06","4000","blue","img/actros.png",CURRENT_TIMESTAMP,null);
+"truck","mercedes","actros","2021-05-06","4000","blue","img/actros.jpg",CURRENT_TIMESTAMP,null);
 
 /* INSERTS USERS */
 INSERT INTO users VALUES(null,"rafa","rodriguez calvente","admin", "1997-02-23","rafa@gmail.com","123123123",CURRENT_TIMESTAMP,null);

@@ -1,9 +1,10 @@
 /* GENERALES */
 
+
 * {
     padding: 0px;
     margin: 0px;
-    font-family: sans-serif, Helvetica, Arial;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -257,6 +258,7 @@ button {
     border-left: 1px solid #ccc;
     box-shadow: -5px -1px 5px #ddd;
     padding: 25px;
+    margin: 0 auto;
 }
 
 #central h1 {
