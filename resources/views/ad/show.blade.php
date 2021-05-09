@@ -27,7 +27,7 @@
             <input type="hidden" name="bail" value="{{$ad->price/4}}">
             <input type="hidden" name="adid" value="{{$ad->adid}}">
             <input type="hidden" name="uid" value="{{$LoggedUserInfo->id}}">
-            <button type="submit" class="button">Confirmar alquiler</button>
+            <button style="margin-left: 80px; margin-top: 20px;" type="submit" class="button">Confirmar alquiler</button>
         </form>
     </div>
 </div>
