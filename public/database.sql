@@ -188,8 +188,8 @@ INSERT INTO ads VALUES(null,
 
 /* INSERTS USERS */
 INSERT INTO users VALUES(null,"rafa","rodriguez calvente","admin", "1997-02-23","rafa@gmail.com","123123123",CURRENT_TIMESTAMP,null);
-INSERT INTO users VALUES(null,"roberto","gonzalez alvarez","client","1997-02-23","rober@gmail.com","123123123",CURRENT_TIMESTAMP,null);
-INSERT INTO users VALUES(null,"juan carlos","camacho carribero","client","1997-02-23","juanca@gmail.com","123123123",CURRENT_TIMESTAMP,null);
+INSERT INTO users VALUES(null,"roberto","gonzalez alvarez","client","1997-02-23","rober@gmail.com","234234234",CURRENT_TIMESTAMP,null);
+INSERT INTO users VALUES(null,"juan carlos","camacho carribero","client","1997-02-23","juanca@gmail.com","345345345",CURRENT_TIMESTAMP,null);
 
 /* INSERTS RENTS */
 INSERT INTO rents VALUES(null,CURRENT_DATE,"2021-06-06",100,
