@@ -41,6 +41,7 @@ Route::middleware(['isLogged'])->group(function(){
     Route::post('store',[RentController::class, 'store'])->name('store');
     Route::get('list',[RentController::class, 'list'])->name('list');
     Route::get('showrent/{rent}',[RentController::class, 'showrent'])->name('showrent');
+    Route::get('delete/rent/{rent}', [RentController::class, 'delete'])->name('delete.rent');
 });
 
 // UserAuth routes

@@ -39,8 +39,14 @@ class RentController extends Controller
 
     public function showrent(Rent $rent)
     {
-        $ad = DB::table('ads')->where('adid', $rent->adid)->first();
-        return view('rent.showrent')->with(['rent' => $rent, 'ad' => $ad]);
+        $current_user = User::where('id','=',session('LoggedUser'))->first();
+
+        $data = DB::table('rents')
+        ->join('ads', 'rents.adid', '=', 'ads.adid')
+        ->where('uid', $current_user->id)
+        ->paginate(4);
+
+        return view('rent.delete')->with(['rows' => $data]);
     }
     
     public function edit(Rent $rent)
@@ -53,14 +59,16 @@ class RentController extends Controller
         //
     }
 
-    public function destroy(Rent $rent)
+    public function delete(Int $rentid)
     {
-        //
+        $query = DB::table('rents')->where('rentid', '=', $rentid)->delete();
+
+        if($query){
+            return back()->with('success','El anuncio ha sido eliminado correctamente.');
+        }else{
+            return back()->with('fail','Algo fue mal.'); 
+        }
+
     }
 
-    public function data_charge(Int $id)
-    {
-        $ad = DB::table('ads')->where('adid', $id)->first();
-        return $ad;
-    }
 }
