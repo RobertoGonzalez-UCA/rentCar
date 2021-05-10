@@ -41,12 +41,8 @@ class RentController extends Controller
     {
         $current_user = User::where('id','=',session('LoggedUser'))->first();
 
-        $data = DB::table('rents')
-        ->join('ads', 'rents.adid', '=', 'ads.adid')
-        ->where('uid', $current_user->id)
-        ->paginate(4);
-
-        return view('rent.delete')->with(['rows' => $data]);
+        $ad = DB::table('ads')->where('adid', $rent->adid)->first();
+        return view('rent.showrent')->with(['rent' => $rent, 'ad' => $ad]);
     }
     
     public function edit(Rent $rent)
