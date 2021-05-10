@@ -72,7 +72,7 @@ class AdController extends Controller
             'brand'=>'string|required|max:255',
             'model'=>'string|required|max:255',
             'license_plate'=>'required',
-            'price'=>'int|required|max:255',
+            'price'=>'int|required|min:1',
             'color'=>'string|required|max:255',
             'image'=>'required|max:255|mimes:jpg,bmp,png,jpeg',
         ]);

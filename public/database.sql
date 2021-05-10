@@ -33,7 +33,7 @@ CREATE TABLE `ads` (
   `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `brand` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `model` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `license_plate` date NOT NULL,
+  `license_plate` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `color` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,

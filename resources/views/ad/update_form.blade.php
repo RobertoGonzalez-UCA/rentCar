@@ -102,7 +102,7 @@
                     </div>
                     <div class="form-group">
                         <label for="license_plate">Matrícula</label>
-                        <input type="date" class="form-control" name="license_plate" value="{{ $ad->license_plate }}"> 
+                        <input type="text" class="form-control" name="license_plate" value="{{ $ad->license_plate }}"> 
                         <span class="text-danger">
                             @error('license_plate'){{$message}} @enderror
                         </span>                    
