@@ -133,6 +133,9 @@
                         <button type="submit" class="btn btn-block btn-primary">Actualizar</button>
                     </div>              
                 </form>
+                
+                <br>
+                <a href="/menu" class="btn btn-success btn-lg " role="button" aria-pressed="true">Volver al inicio</a>
             </div>
         </div>
     </div>
