@@ -72,7 +72,7 @@ href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
 
                         @if(isset($isAdmin))
                             @if($isAdmin)
-                                <li><a href="/admin">Gestionar Alquileres</a></li>
+                                <li><a href="/admin">Gestionar anuncios</a></li>
                             @endif
                         @endif
                         
